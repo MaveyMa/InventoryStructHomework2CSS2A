@@ -10,5 +10,9 @@ using namespace std;
 int main()
 {
 	cout << "HELLO PETER PANDA!" << endl;
+	for (int i = 0; i < 5; i++)
+	{
+		cout << i << " yummy bread" << endl;
+	}
 	return 0;
 }//END MAIN
