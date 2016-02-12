@@ -33,8 +33,8 @@ struct Inventory {
 
 int main()
 {
-
-
+	const int SIZE = 50;
+	Inventory itemAry[SIZE];
 
 
 	cout << "HELLO PETER PANDA!" << endl;
