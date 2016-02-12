@@ -30,17 +30,37 @@ struct Inventory {
 	int amountInStock;
 	int amountToReorder;
 };
+void initialize(Inventory ary[], int n);
 
 int main()
 {
 	const int SIZE = 50;
 	Inventory itemAry[SIZE];
 
+	
+	initialize(itemAry, SIZE);
+	cout << itemAry[0].partName << endl;
+	cout << itemAry[1].partNumber << endl;
+	cout << itemAry[3].price << endl;
+	cout << itemAry[33].amountInStock << endl;
+	cout << itemAry[49].amountToReorder << endl;
 
 	cout << "HELLO PETER PANDA!" << endl;
 	return 0;
 }//END MAIN
 
+void initialize(Inventory ary[], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		ary[i].partName = "BREAD IS AWESOME.";
+		ary[i].partNumber = 0;
+		ary[i].price = 0.00;
+		ary[i].amountInStock = 0;
+		ary[i].amountToReorder = 0;
+	}//END FOR LOOP
+	return;
+}//END INITIALIZE DEFAULT VALUES
 
 
 
