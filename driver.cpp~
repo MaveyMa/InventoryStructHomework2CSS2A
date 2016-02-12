@@ -43,7 +43,7 @@ int main()
 	cout << itemAry[1].partNumber << endl;
 	cout << itemAry[3].price << endl;
 	cout << itemAry[33].amountInStock << endl;
-	cout << itemAry[50].amountToReorder << endl;
+	cout << itemAry[49].amountToReorder << endl;
 
 	cout << "HELLO PETER PANDA!" << endl;
 	return 0;
@@ -53,9 +53,9 @@ void initialize(Inventory ary[], int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-		ary[i].partName = "BREAD IS AWESOME.";
+		ary[i].partName = "";
 		ary[i].partNumber = 0;
-		ary[i].price = 0.00;
+		ary[i].price = 0;
 		ary[i].amountInStock = 0;
 		ary[i].amountToReorder = 0;
 	}//END FOR LOOP

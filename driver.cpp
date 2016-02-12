@@ -1,11 +1,9 @@
 //Name: Mavey Ma
 //Created: Thursday, February 11, 2016
 //CSS2A | Homework2 | Inventory Struct
-/* Define an Inventory struct type.
-1. Create a program that contains an array of 50 Inventory items.
-2. Initialize all 50 items with default values 
-(empty strings for the string variables, 0 for the number variables).
-3. Menu function
+/* Defines an Inventory struct type. 
+Creates an array of 50 Inventory items, initialized to default values. 
+Menu function:
 	D - Display
 		// Display all Inventory items. Do not display Inventory that is empty
 	A - Add Inventory Item
@@ -30,7 +28,11 @@ struct Inventory {
 	int amountInStock;
 	int amountToReorder;
 };
+
 void initialize(Inventory ary[], int n);
+//SUMMARY: Initializes array items with default values.
+//PRE: Takes in an Inventory struct type array, and an integer size of that array.
+//POST: Within array, string variables become empty "" and number variables become 0.
 
 int main()
 {
@@ -53,9 +55,9 @@ void initialize(Inventory ary[], int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-		ary[i].partName = "BREAD IS AWESOME.";
+		ary[i].partName = "";
 		ary[i].partNumber = 0;
-		ary[i].price = 0.00;
+		ary[i].price = 0;
 		ary[i].amountInStock = 0;
 		ary[i].amountToReorder = 0;
 	}//END FOR LOOP
