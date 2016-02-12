@@ -14,7 +14,6 @@ Menu function:
 #include<iostream>
 #include<string>
 #include<iomanip> //setw()
-#include<cstdlib>
 using namespace std;
 
 struct Inventory {
@@ -107,22 +106,22 @@ int main()
 		}//END SWITCH
 	}//END WHILE REPEAT
 	
-	cout << "HELLO PETER PANDA!" << endl;
+	cout << "Have a nice day!" << endl;
 	return 0;
 }//END MAIN
 
 char menu()
 {
 	char alpha;
-	cout << "* * * * YOUR INVENTORY * * * *" << endl;
 	cout << "~ MENU BELOW: CHOOSE LETTER! ~" << endl;
-	cout << "D - Display" << endl;
-	cout << "A - Add Inventory Item" << endl;
-	cout << "U - Update an Inventory item" << endl;
-	cout << "I - Display one Inventory item" << endl;
-	cout << "Q - Quit" << endl;
+	cout << "~ D - Display" << endl;
+	cout << "~ A - Add Inventory Item" << endl;
+	cout << "~ U - Update an Inventory item" << endl;
+	cout << "~ I - Display one Inventory item" << endl;
+	cout << "~ Q - Quit" << endl;
 	cout << "~ ENTER SELECTION: ";
 	cin >> alpha;
+	cout << endl;
 	return toupper(alpha);
 }//END MENU
 
@@ -146,7 +145,7 @@ void initialize(Inventory ary[], int n)
 void display(Inventory ary[], int n)
 {
 	cout << "* * * * YOUR INVENTORY * * * *" << endl;
-	cout << "------------------------------" << endl;
+	cout << "*-----------------------------" << endl;
 	for (int i = 0; i < n; i++)
 	{
 		if (ary[i].partName == "")
@@ -157,12 +156,12 @@ void display(Inventory ary[], int n)
 		}
 		else
 		{
-			cout << "Name: " << ary[i].partName << endl;
-			cout << "Number: " << "#" << ary[i].partNumber << endl;
-			cout << "Price: " << "$" << ary[i].price << endl;
-			cout << "Stock: " << ary[i].amountInStock << endl;
-			cout << "Reorder: " << ary[i].amountToReorder << endl;
-			cout << "------------------------------" << endl;
+			cout << "* Name: " << ary[i].partName << endl;
+			cout << "* Number: " << "#" << ary[i].partNumber << endl;
+			cout << "* Price: " << "$" << ary[i].price << endl;
+			cout << "* Stock: " << ary[i].amountInStock << endl;
+			cout << "* Reorder: " << ary[i].amountToReorder << endl;
+			cout << "*-----------------------------" << endl;
 		}
 	}//END FOR
 	return;
@@ -181,15 +180,15 @@ void addItem(Inventory ary[], int n)
 		}
 		else
 		{
-			cout << "Enter Item Name: ";
+			cout << "+ Enter Item Name: ";
 			cin >> ary[i].partName;
-			cout << "Enter Item Number: #";
+			cout << "+ Enter Item Number: #";
 			cin >> ary[i].partNumber;
-			cout << "Enter Price: " << "$";
+			cout << "+ Enter Price: " << "$";
 			cin >> ary[i].price;
-			cout << "Enter Stock Count: ";
+			cout << "+ Enter Stock Count: ";
 			cin >> ary[i].amountInStock;
-			cout << "Enter Reorder Count: ";
+			cout << "+ Enter Reorder Count: ";
 			cin >> ary[i].amountToReorder;
 			break;
 		}
@@ -202,8 +201,8 @@ void addItem(Inventory ary[], int n)
 void updateItem(Inventory ary[], int n)
 {
 	int val;
-	cout << "@ @ @ @UPDATE ITEM INFO@ @ @ @" << endl;
-	cout << "Enter item number, please: ";
+	cout << "= = = =UPDATE ITEM INFO= = = =" << endl;
+	cout << "= Enter item #, please: ";
 	cin >> val;
 
 	for (int i = 0; i < n; i++)
@@ -216,28 +215,22 @@ void updateItem(Inventory ary[], int n)
 		}
 		else
 		{
-			cout << ". . . . ." << endl;
-			cout << "Old Item Name: " << ary[i].partName << endl;
-			cout << "Enter New Item Name: ";
+			cout << "= Old Item Name: " << ary[i].partName << endl;
+			cout << "= Enter New Item Name: ";
 			cin >> ary[i].partName;
-			cout << ". . . . ." << endl;
-			cout << "Old Item Number: " << ary[i].partNumber << endl;
-			cout << "Enter New Item Number: #";
+			cout << "= Old Item Number: " << ary[i].partNumber << endl;
+			cout << "= Enter New Item Number: #";
 			cin >> ary[i].partNumber;
-			cout << ". . . . ." << endl;
-			cout << "Old Price: " << ary[i].price << endl;
-			cout << "Enter New Price: " << "$";
+			cout << "= Old Price: " << ary[i].price << endl;
+			cout << "= Enter New Price: " << "$";
 			cin >> ary[i].price;
-			cout << ". . . . ." << endl;
-			cout << "Old Stock Count: " << ary[i].amountInStock << endl;
-			cout << "Enter New Stock Count: ";
+			cout << "= Old Stock Count: " << ary[i].amountInStock << endl;
+			cout << "= Enter New Stock Count: ";
 			cin >> ary[i].amountInStock;
-			cout << ". . . . ." << endl;
-			cout << "Old Stock Count: " << ary[i].amountToReorder << endl;
-			cout << "Enter New Reorder Count: ";
+			cout << "= Old Stock Count: " << ary[i].amountToReorder << endl;
+			cout << "= Enter New Reorder Count: ";
 			cin >> ary[i].amountToReorder;
-			cout << ". . . . ." << endl;
-			cout << "@ @ @ @UPDATE ITEM INFO@ @ @ @" << endl;
+			cout << "= = = =UPDATE ITEM INFO= = = =" << endl;
 			cout << endl;
 			break;
 		}
@@ -249,7 +242,7 @@ void displayOne(Inventory ary[], int n)
 {
 	int val;
 	cout << "# # # # VIEW ITEM INFO # # # #" << endl;
-	cout << "Enter item number, please: ";
+	cout << "# Enter item number, please: ";
 	cin >> val;
 
 	for (int i = 0; i < n; i++)
@@ -262,11 +255,11 @@ void displayOne(Inventory ary[], int n)
 		}
 		else
 		{
-			cout << "Name: " << ary[i].partName << endl;
-			cout << "Number: " << "#" << ary[i].partNumber << endl;
-			cout << "Price: " << "$" << ary[i].price << endl;
-			cout << "Stock: " << ary[i].amountInStock << endl;
-			cout << "Reorder: " << ary[i].amountToReorder << endl;
+			cout << "# Name: " << ary[i].partName << endl;
+			cout << "# Number: " << "#" << ary[i].partNumber << endl;
+			cout << "# Price: " << "$" << ary[i].price << endl;
+			cout << "# Stock: " << ary[i].amountInStock << endl;
+			cout << "# Reorder: " << ary[i].amountToReorder << endl;
 			cout << "# # # # VIEW ITEM INFO # # # #" << endl;
 			cout << endl;
 			break;
