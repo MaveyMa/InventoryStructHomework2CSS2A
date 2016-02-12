@@ -5,10 +5,7 @@
 Creates an array of 50 Inventory items, initialized to default values. 
 Menu function:
 	D - Display
-		// Display all Inventory items. Do not display Inventory that is empty
 	A - Add Inventory Item
-		// Prompt user for all information. Read input and set up next available Inventory item 
-		HINT: You need to keep track of how may Inventory items have been set up
 	U - Update an Inventory item
 		// Prompt user for a partNumber and use that to locate the Inventory item to update. 
 	I - Display one Inventory item 
@@ -40,10 +37,14 @@ void display(Inventory ary[], int n);
 //POST: Within array, string variables become empty "" and number variables become 0.
 
 void addItem(Inventory ary[], int n);
-//SUMMARY: Prompt user for info. Read and write input.
+//SUMMARY: Prompt user for info and add new item to inventory.
 //PRE: Takes in an Inventory struct type array, and an integer size of that array.
-//POST: Adds user info of item into inventory.
+//POST: User input gets written as info of new inventory item.
 
+void updateItem(Inventory ary[], int n, int val);
+//SUMMARY: Update an Inventory item; Prompt user for a partNumber and use that to locate the Inventory item to update.
+//PRE: Takes in an Inventory struct type array, an integer size of that array, and the user's partNumber integer.
+//POST: Allows user access to change to change any part of the item.
 int main()
 {
 	const int SIZE = 50;
@@ -68,6 +69,7 @@ int main()
 	itemAry[2].amountInStock = 2;
 	itemAry[2].amountToReorder = 9;
 
+	addItem(itemAry, SIZE);
 
 	display(itemAry, SIZE);
 	cout << "HELLO PETER PANDA!" << endl;
@@ -93,11 +95,15 @@ void initialize(Inventory ary[], int n)
 
 void display(Inventory ary[], int n)
 {
+	cout << "* * * * YOUR INVENTORY * * * *" << endl;
+	cout << "------------------------------" << endl;
 	for (int i = 0; i < n; i++)
 	{
 		if (ary[i].partName == "")
 		{
-			return;
+			cout << "* * * * YOUR INVENTORY * * * *" << endl;
+			cout << endl;
+			break;
 		}
 		else
 		{
@@ -106,6 +112,7 @@ void display(Inventory ary[], int n)
 			cout << "Price: " << "$" << ary[i].price << endl;
 			cout << "Stock: " << ary[i].amountInStock << endl;
 			cout << "Reorder: " << ary[i].amountToReorder << endl;
+			cout << "------------------------------" << endl;
 		}
 	}//END FOR
 	return;
@@ -113,6 +120,7 @@ void display(Inventory ary[], int n)
 
 void addItem(Inventory ary[], int n)
 {
+	cout << "+ + + + +ADD NEW ITEM+ + + + +" << endl;
 	for (int i = 0; i < n; i++)
 	{
 		if (ary[i].partName != "")
@@ -133,11 +141,19 @@ void addItem(Inventory ary[], int n)
 			cin >> ary[i].amountInStock;
 			cout << "Enter Reorder Count: ";
 			cin >> ary[i].amountToReorder;
+			break;
 		}
 	}//END FOR
+	cout << "+ + + + +ADD NEW ITEM+ + + + +" << endl;
+	cout << endl;
 	return;
 }//END ADD ITEM
 
+void updateItem(Inventory ary[], int n, int val)
+{
+
+	return;
+}//END UPDATE ITEM
 
 
 
