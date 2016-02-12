@@ -7,9 +7,7 @@ Menu function:
 	D - Display
 	A - Add Inventory Item
 	U - Update an Inventory item
-		// Prompt user for a partNumber and use that to locate the Inventory item to update. 
 	I - Display one Inventory item 
-		// Prompt user for partNumber and display all information for that Inventory item
 	Q - Quit
 */
 
@@ -29,7 +27,7 @@ struct Inventory {
 void initialize(Inventory ary[], int n);
 //SUMMARY: Show all Inventory items, but not empty ones.
 //PRE: Takes in an Inventory struct type array, and an integer size of that array.
-//POST: cout << to screen relevant information.
+//POST: cout << to screen entire inventory with info.
 
 void display(Inventory ary[], int n);
 //SUMMARY: Initializes array items with default values.
@@ -43,8 +41,14 @@ void addItem(Inventory ary[], int n);
 
 void updateItem(Inventory ary[], int n);
 //SUMMARY: Update an Inventory item; Prompt user for a partNumber and use that to locate the Inventory item to update.
-//PRE: Takes in an Inventory struct type array, an integer size of that array
+//PRE: Takes in an Inventory struct type array, an integer size of that array.
 //POST: Allows user access to change to change any part of the item.
+
+void displayOne(Inventory ary[], int n);
+//SUMMARY: Prompt user for partNumber and display all info for that Inventory item.
+//PRE: Takes in an Inventory struct type array, an integer size of that array.
+//POST: cout << to screen just one item with info.
+
 int main()
 {
 	const int SIZE = 50;
@@ -73,6 +77,9 @@ int main()
 	display(itemAry, SIZE);
 	updateItem(itemAry, SIZE);
 	display(itemAry, SIZE);
+	
+
+	displayOne(itemAry, SIZE);
 	cout << "HELLO PETER PANDA!" << endl;
 	return 0;
 }//END MAIN
@@ -195,6 +202,36 @@ void updateItem(Inventory ary[], int n)
 	}//END FOR
 	return;
 }//END UPDATE ITEM
+
+void displayOne(Inventory ary[], int n)
+{
+	int val;
+	cout << "# # # # VIEW ITEM INFO # # # #" << endl;
+	cout << "Enter item number, please: ";
+	cin >> val;
+
+	for (int i = 0; i < n; i++)
+	{
+		if (ary[i].partNumber != val)
+		{
+			//LOOKING FOR USER'S PART NUMBER (VAL)
+			//IF NOT VAL (WRONG ITEM), GO TO NEXT.
+			continue;
+		}
+		else
+		{
+			cout << "Name: " << ary[i].partName << endl;
+			cout << "Number: " << "#" << ary[i].partNumber << endl;
+			cout << "Price: " << "$" << ary[i].price << endl;
+			cout << "Stock: " << ary[i].amountInStock << endl;
+			cout << "Reorder: " << ary[i].amountToReorder << endl;
+			cout << "# # # # VIEW ITEM INFO # # # #" << endl;
+			cout << endl;
+			break;
+		}
+	}//END FOR
+	return;
+}//END DISPLAY ONE ITEM
 
 
 
