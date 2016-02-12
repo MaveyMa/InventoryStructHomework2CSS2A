@@ -7,7 +7,6 @@ Menu function:
 	D - Display
 	A - Add Inventory Item
 	U - Update an Inventory item
-		// Prompt user for a partNumber and use that to locate the Inventory item to update. 
 	I - Display one Inventory item 
 		// Prompt user for partNumber and display all information for that Inventory item
 	Q - Quit
@@ -41,9 +40,9 @@ void addItem(Inventory ary[], int n);
 //PRE: Takes in an Inventory struct type array, and an integer size of that array.
 //POST: User input gets written as info of new inventory item.
 
-void updateItem(Inventory ary[], int n, int val);
+void updateItem(Inventory ary[], int n);
 //SUMMARY: Update an Inventory item; Prompt user for a partNumber and use that to locate the Inventory item to update.
-//PRE: Takes in an Inventory struct type array, an integer size of that array, and the user's partNumber integer.
+//PRE: Takes in an Inventory struct type array, an integer size of that array
 //POST: Allows user access to change to change any part of the item.
 int main()
 {
@@ -70,7 +69,8 @@ int main()
 	itemAry[2].amountToReorder = 9;
 
 	addItem(itemAry, SIZE);
-
+	display(itemAry, SIZE);
+	updateItem(itemAry, SIZE);
 	display(itemAry, SIZE);
 	cout << "HELLO PETER PANDA!" << endl;
 	return 0;
@@ -149,9 +149,49 @@ void addItem(Inventory ary[], int n)
 	return;
 }//END ADD ITEM
 
-void updateItem(Inventory ary[], int n, int val)
+void updateItem(Inventory ary[], int n)
 {
+	int val;
+	cout << "@ @ @ @UPDATE ITEM INFO@ @ @ @" << endl;
+	cout << "Enter item number, please: ";
+	cin >> val;
 
+	for (int i = 0; i < n; i++)
+	{
+		if (ary[i].partNumber != val)
+		{
+			//LOOKING FOR USER'S PART NUMBER (VAL)
+			//IF NOT VAL (WRONG ITEM), GO TO NEXT.
+			continue;
+		}
+		else
+		{
+			cout << ". . . . ." << endl;
+			cout << "Old Item Name: " << ary[i].partName << endl;
+			cout << "Enter New Item Name: ";
+			cin >> ary[i].partName;
+			cout << ". . . . ." << endl;
+			cout << "Old Item Number: " << ary[i].partNumber << endl;
+			cout << "Enter New Item Number: #";
+			cin >> ary[i].partNumber;
+			cout << ". . . . ." << endl;
+			cout << "Old Price: " << ary[i].price << endl;
+			cout << "Enter New Price: " << "$";
+			cin >> ary[i].price;
+			cout << ". . . . ." << endl;
+			cout << "Old Stock Count: " << ary[i].amountInStock << endl;
+			cout << "Enter New Stock Count: ";
+			cin >> ary[i].amountInStock;
+			cout << ". . . . ." << endl;
+			cout << "Old Stock Count: " << ary[i].amountToReorder << endl;
+			cout << "Enter New Reorder Count: ";
+			cin >> ary[i].amountToReorder;
+			cout << ". . . . ." << endl;
+			cout << "@ @ @ @UPDATE ITEM INFO@ @ @ @" << endl;
+			cout << endl;
+			break;
+		}
+	}//END FOR
 	return;
 }//END UPDATE ITEM
 
