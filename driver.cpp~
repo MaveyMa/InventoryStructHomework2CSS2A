@@ -80,7 +80,7 @@ int main()
 	itemAry[2].amountToReorder = 9;
 
 	char some = menu();
-	cout << toupper(some) << endl;
+	cout << some << endl;
 
 	cout << "HELLO PETER PANDA!" << endl;
 	return 0;
@@ -98,7 +98,7 @@ char menu()
 	cout << "Q - Quit" << endl;
 	cout << "~ ENTER SELECTION: ";
 	cin >> alpha;
-	return alpha;
+	return toupper(alpha);
 }//END MENU
 
 void initialize(Inventory ary[], int n)

@@ -52,11 +52,13 @@ void displayOne(Inventory ary[], int n);
 
 char menu();
 //SUMMARY: Provides list of options.
-//PRE: N/A
-//POST: Returns a char.
+//PRE: Enter only a character type.
+//POST: Returns upper-cased version of entered char.
 
 int main()
 {
+	char choice;
+	bool repeat = true;
 	const int SIZE = 50;
 	Inventory itemAry[SIZE];
 	initialize(itemAry, SIZE);
@@ -79,9 +81,32 @@ int main()
 	itemAry[2].amountInStock = 2;
 	itemAry[2].amountToReorder = 9;
 
-	char some = menu();
-	cout << some << endl;
-
+	while (repeat)
+	{
+		choice = menu();
+		switch (choice)
+		{
+			case 'D':
+				display(itemAry, SIZE);
+				break;
+			case 'A':
+				addItem(itemAry, SIZE);
+				break;
+			case 'U':
+				updateItem(itemAry, SIZE);
+				break;
+			case 'I':
+				displayOne(itemAry, SIZE);
+				break;
+			case 'Q':
+				repeat = false;
+				break;
+			default:
+				cout << "Program should never reach here.\n";
+				break;
+		}//END SWITCH
+	}//END WHILE REPEAT
+	
 	cout << "HELLO PETER PANDA!" << endl;
 	return 0;
 }//END MAIN
