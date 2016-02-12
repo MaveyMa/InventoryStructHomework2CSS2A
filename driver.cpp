@@ -14,6 +14,7 @@ Menu function:
 #include<iostream>
 #include<string>
 #include<iomanip> //setw()
+#include<cstdlib>
 using namespace std;
 
 struct Inventory {
@@ -49,6 +50,11 @@ void displayOne(Inventory ary[], int n);
 //PRE: Takes in an Inventory struct type array, an integer size of that array.
 //POST: cout << to screen just one item with info.
 
+char menu();
+//SUMMARY: Provides list of options.
+//PRE: N/A
+//POST: Returns a char.
+
 int main()
 {
 	const int SIZE = 50;
@@ -73,15 +79,27 @@ int main()
 	itemAry[2].amountInStock = 2;
 	itemAry[2].amountToReorder = 9;
 
-	addItem(itemAry, SIZE);
-	display(itemAry, SIZE);
-	updateItem(itemAry, SIZE);
-	display(itemAry, SIZE);
-	displayOne(itemAry, SIZE);
+	char some = menu();
+	cout << some << endl;
 
 	cout << "HELLO PETER PANDA!" << endl;
 	return 0;
 }//END MAIN
+
+char menu()
+{
+	char alpha;
+	cout << "* * * * YOUR INVENTORY * * * *" << endl;
+	cout << "~ MENU BELOW: CHOOSE LETTER! ~" << endl;
+	cout << "D - Display" << endl;
+	cout << "A - Add Inventory Item" << endl;
+	cout << "U - Update an Inventory item" << endl;
+	cout << "I - Display one Inventory item" << endl;
+	cout << "Q - Quit" << endl;
+	cout << "~ ENTER SELECTION: ";
+	cin >> alpha;
+	return toupper(alpha);
+}//END MENU
 
 void initialize(Inventory ary[], int n)
 {
@@ -231,9 +249,3 @@ void displayOne(Inventory ary[], int n)
 	}//END FOR
 	return;
 }//END DISPLAY ONE ITEM
-
-
-
-
-
-
